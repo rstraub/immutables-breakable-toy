@@ -1,6 +1,15 @@
 # 🧸 Breakable Toy Immutables
 
-Playing around with the [Immutables](https://immutables.github.io) library which helps out with making immutable objects.
+Playing around with the [Immutables](https://immutables.github.io) library which helps out with making immutable
+objects.
+
+# Observations On The Immutables Library
+
+Summary of what I liked, and disliked
+
+| Like                | Dislike |
+|---------------------|---------|
+| Highly Configurable | Y       |
 
 # ☕️ Using Java Kata Base
 

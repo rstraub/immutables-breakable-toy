@@ -3,10 +3,12 @@ package nl.codecraftr.java.kata;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import java.util.List;
-import java.util.Optional;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 class WikiPageTest {
@@ -141,8 +143,28 @@ class WikiPageTest {
     }
 
     @Test
-    @Disabled
-    void shouldSerialize() {
-        assertThat(true).isFalse();
+    void shouldSerialize() throws IOException, ClassNotFoundException {
+        var wrotePage = WikiPageValue.builder()
+                .author("henk")
+                .isActive(true)
+                .addTags("1", "2")
+                .build();
+
+        FileOutputStream fileOutputStream
+                = new FileOutputStream("./wikipage.txt");
+        ObjectOutputStream objectOutputStream
+                = new ObjectOutputStream(fileOutputStream);
+        objectOutputStream.writeObject(wrotePage);
+        objectOutputStream.flush();
+        objectOutputStream.close();
+
+        FileInputStream fileInputStream
+                = new FileInputStream("./wikipage.txt");
+        ObjectInputStream objectInputStream
+                = new ObjectInputStream(fileInputStream);
+        var readPage = (WikiPageValue) objectInputStream.readObject();
+        objectInputStream.close();
+
+        assertThat(readPage).isEqualTo(wrotePage);
     }
 }
