@@ -47,11 +47,7 @@
                     <violationSeverity>warning</violationSeverity>
                 </configuration>
                 <dependencies>
-                    <dependency>
-                        <groupId>org.immutables</groupId>
-                        <artifactId>value</artifactId>
-                        <version>2.8.2</version>
-                    </dependency>
+
                     <dependency>
                         <artifactId>checkstyle</artifactId>
                         <groupId>com.puppycrawl.tools</groupId>
@@ -111,11 +107,17 @@
             <scope>test</scope>
             <version>${mockito.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.immutables</groupId>
+            <artifactId>value</artifactId>
+            <version>2.8.2</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     <groupId>nl.codecraftr</groupId>
     <modelVersion>4.0.0</modelVersion>
 
-    <name>Java Kata Base</name>
+    <name>🧸 Breakable Toy Immutables</name>
 
     <properties>
         <assertj.version>3.22.0</assertj.version>
