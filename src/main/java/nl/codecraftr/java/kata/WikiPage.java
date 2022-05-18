@@ -3,6 +3,9 @@ package nl.codecraftr.java.kata;
 import org.immutables.value.Value;
 
 @Value.Immutable
+@Value.Style(
+        typeImmutable = "*Value"
+)
 public interface WikiPage {
     @Value.Parameter(order = 1)
     @Value.Default

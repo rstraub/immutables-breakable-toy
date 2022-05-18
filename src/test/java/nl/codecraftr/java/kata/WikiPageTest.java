@@ -9,7 +9,7 @@ class WikiPageTest {
 
     @Test
     void shouldCreateImmutableUsingBuilder() {
-        var result = ImmutableWikiPage.builder()
+        var result = WikiPageValue.builder()
                 .author("henk")
                 .isActive(true)
                 .build();
@@ -20,7 +20,7 @@ class WikiPageTest {
 
     @Test
     void shouldOfferCopyMethods() {
-        var result = ImmutableWikiPage.builder()
+        var result = WikiPageValue.builder()
                 .author("henk")
                 .isActive(true)
                 .build()
@@ -33,12 +33,12 @@ class WikiPageTest {
 
     @Test
     void shouldPopulateBuilderWithFromMethod() {
-        var initial = ImmutableWikiPage.builder()
+        var initial = WikiPageValue.builder()
                 .author("henk")
                 .isActive(true)
                 .build();
 
-        var result = ImmutableWikiPage.builder().from(initial).build();
+        var result = WikiPageValue.builder().from(initial).build();
 
         assertThat(result.author()).isEqualTo("henk");
         assertThat(result.isActive()).isTrue();
@@ -46,7 +46,7 @@ class WikiPageTest {
 
     @Test
     void shouldHaveToStringImplementation() {
-        var result = ImmutableWikiPage.builder()
+        var result = WikiPageValue.builder()
                 .author("henk")
                 .isActive(true)
                 .build();
@@ -56,7 +56,7 @@ class WikiPageTest {
 
     @Test
     void shouldAllowOverridingBuilderState() {
-        var builder = ImmutableWikiPage.builder()
+        var builder = WikiPageValue.builder()
                 .author("henk")
                 .isActive(true);
 
@@ -69,7 +69,7 @@ class WikiPageTest {
 
     @Test
     void shouldAllowConstructorWithParameterAnnotation() {
-        var result = ImmutableWikiPage.of("henk", true);
+        var result = WikiPageValue.of("henk", true);
 
         assertThat(result.author()).isEqualTo("henk");
         assertThat(result.isActive()).isTrue();
@@ -77,7 +77,7 @@ class WikiPageTest {
 
     @Test
     void shouldThrowExceptionGivenPartialInitialization() {
-        assertThatThrownBy(() -> ImmutableWikiPage.builder()
+        assertThatThrownBy(() -> WikiPageValue.builder()
                 .isActive(true)
                 .build())
                 .isInstanceOf(IllegalStateException.class);
@@ -85,14 +85,14 @@ class WikiPageTest {
 
     @Test
     void shouldAllowDefaultAttributes() {
-        var result = ImmutableWikiPage.builder().author("henk").build();
+        var result = WikiPageValue.builder().author("henk").build();
 
         assertThat(result.isActive()).isTrue();
     }
 
     @Test
     void shouldAllowDerivedAttributes() {
-        var result = ImmutableWikiPage.builder().author("henk").isActive(true).build();
+        var result = WikiPageValue.builder().author("henk").isActive(true).build();
 
         assertThat(result.isInactive()).isFalse();
     }
