@@ -8,7 +8,7 @@ import org.immutables.value.Value;
 @Value.Style(
         typeImmutable = "*Value"
 )
-public interface WikiPage {
+public sealed interface WikiPage permits WikiPageValue {
     @Value.Parameter(order = 1)
     @Value.Default
     default boolean isActive() {
