@@ -43,4 +43,5 @@ public sealed interface WikiPage extends Serializable permits WikiPageValue {
         System.out.println("Counting tags...");
         return tags().size();
     }
+
 }

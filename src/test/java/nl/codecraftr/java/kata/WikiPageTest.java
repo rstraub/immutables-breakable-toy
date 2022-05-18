@@ -170,13 +170,23 @@ class WikiPageTest {
 
     @Test
     void shouldAllowInvariantProtection() {
-        assertThatThrownBy(() -> {
-            A_PAGE.author("").build();
-        }).isInstanceOf(IllegalArgumentException.class)
+        assertThatThrownBy(() -> A_PAGE.author("").build())
+                .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("Author cannot be blank");
     }
 
-    // TODO: attempt factory methods
+    @Test
+    void shouldAllowFactoryMethods() {
+        var taggedPage = new TaggedPageBuilder()
+                .page(A_PAGE.build().withAuthor("Johnny Tag"));
+
+        var one = taggedPage.tag("1").build();
+        var two = taggedPage.tag("2").build();
+
+        assertThat(one.tags()).containsExactly("1");
+        assertThat(two.tags()).containsExactly("2");
+    }
+
     // TODO: attempt json serialization (for mongo)
     // TODO: compare with records
 
