@@ -51,7 +51,7 @@ class WikiPageTest {
                 .isActive(true)
                 .build();
 
-        assertThat(result.toString()).isEqualTo("WikiPage{isActive=true, author=henk}");
+        assertThat(result.toString()).isEqualTo("WikiPage{isActive=true, author=henk, tags=[]}");
     }
 
     @Test
@@ -95,5 +95,15 @@ class WikiPageTest {
         var result = WikiPageValue.builder().author("henk").isActive(true).build();
 
         assertThat(result.isInactive()).isFalse();
+    }
+
+    @Test
+    void shouldAllowCollections() {
+        var result = WikiPageValue.builder()
+                .author("henk")
+                .addTags("tech", "books")
+                .build();
+
+        assertThat(result.tags()).contains("tech", "books");
     }
 }
