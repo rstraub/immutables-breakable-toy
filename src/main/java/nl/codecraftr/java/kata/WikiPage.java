@@ -29,4 +29,10 @@ public sealed interface WikiPage permits WikiPageValue {
 
     // Implicitly gets a default empty collection
     List<String> tags();
+
+    @Value.Lazy
+    default int countTags() {
+        System.out.println("Counting tags...");
+        return tags().size();
+    }
 }

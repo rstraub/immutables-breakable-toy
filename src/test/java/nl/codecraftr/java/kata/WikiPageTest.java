@@ -3,7 +3,10 @@ package nl.codecraftr.java.kata;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import java.util.List;
+import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 class WikiPageTest {
@@ -128,10 +131,17 @@ class WikiPageTest {
 
     @Test
     void shouldAllowLazyAttributes() {
-        assertThat(true).isFalse();
+        var result = A_PAGE
+                .addTags("a", "b", "c")
+                .build();
+
+        // Print statement shows the value is calculated once, even though we call the method twice.
+        assertThat(result.countTags()).isNotNegative();
+        assertThat(result.countTags()).isEqualTo(3);
     }
 
     @Test
+    @Disabled
     void shouldSerialize() {
         assertThat(true).isFalse();
     }
