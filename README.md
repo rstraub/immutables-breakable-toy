@@ -1,4 +1,8 @@
-# ☕️ Java Kata Base
+# 🧸 Breakable Toy Immutables
+
+Playing around with the [Immutables](https://immutables.github.io) library which helps out with making immutable objects.
+
+# ☕️ Using Java Kata Base
 
 [![Java CI with Maven](https://github.com/rstraub/java-kata-base/actions/workflows/maven.yml/badge.svg)](https://github.com/rstraub/java-kata-base/actions/workflows/maven.yml)
 
