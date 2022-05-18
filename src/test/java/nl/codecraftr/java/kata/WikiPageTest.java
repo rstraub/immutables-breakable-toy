@@ -1,5 +1,6 @@
 package nl.codecraftr.java.kata;
 
+import static java.util.Collections.emptyList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -187,14 +188,15 @@ class WikiPageTest {
         assertThat(two.tags()).containsExactly("2");
     }
 
-    // TODO: attempt json serialization (for mongo)
-    // TODO: compare with records
-
     @Test
-    void recordComparison() {
-        var result = new SimpleWikiPage("henk", true);
+    void shouldBeMorePowerfulThanRecords() {
+        var rec = new SimpleWikiPage("henk", true, emptyList());
+
+        // Records offer equals, hashCode, toString and some other stuff.
+        // They DO NOT offer copy methods unlike case classes, data classes, or Immutables implementation.
+        // This makes them unwieldy in a functional programming style
+        assertThat(rec.toString()).isEqualTo("SimpleWikiPage[author=henk, isActive=true, tags=[]]");
     }
 
-    private record SimpleWikiPage(String author, boolean isActive) {
-    }
+    // TODO: attempt json serialization (for mongo)
 }

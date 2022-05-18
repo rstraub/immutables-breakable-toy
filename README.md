@@ -19,6 +19,7 @@ Summary of what I liked, and disliked
 | [Lazy][lazy] evaluation + memoization                                                 |                                                                                 |
 | Usage [Patterns][patterns] & defining metatypes                                       |                                                                                 |
 | Interop with Java & [Guava][guava] types                                              |                                                                                 |
+| Java [records][records] offer zero-boilerplate dataholders, nothing more, nothing less |                                                                                 |
 
 # ☕️ Using Java Kata Base
 
@@ -80,3 +81,4 @@ mvn verify
 [ide]: https://immutables.github.io/apt.html
 [ap]: https://www.baeldung.com/java-annotation-processing-builder
 [guava]: https://guava.dev/
+[records]: 
