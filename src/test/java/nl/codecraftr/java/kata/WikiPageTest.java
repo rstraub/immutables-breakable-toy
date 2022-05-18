@@ -3,9 +3,16 @@ package nl.codecraftr.java.kata;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class WikiPageTest {
+    private WikiPageValue.Builder A_PAGE;
+
+    @BeforeEach
+    void setUp() {
+        A_PAGE = WikiPageValue.builder().author("anonymous");
+    }
 
     @Test
     void shouldCreateImmutableUsingBuilder() {
@@ -56,8 +63,7 @@ class WikiPageTest {
 
     @Test
     void shouldAllowOverridingBuilderState() {
-        var builder = WikiPageValue.builder()
-                .author("henk")
+        var builder = A_PAGE
                 .isActive(true);
 
         var one = builder.build();
@@ -92,18 +98,41 @@ class WikiPageTest {
 
     @Test
     void shouldAllowDerivedAttributes() {
-        var result = WikiPageValue.builder().author("henk").isActive(true).build();
+        var result = A_PAGE.isActive(true).build();
 
         assertThat(result.isInactive()).isFalse();
     }
 
     @Test
     void shouldAllowCollections() {
-        var result = WikiPageValue.builder()
-                .author("henk")
+        var result = A_PAGE
                 .addTags("tech", "books")
                 .build();
 
         assertThat(result.tags()).contains("tech", "books");
+    }
+
+    @Test
+    void shouldAllowOptionals() {
+        var result = A_PAGE.coauthor("daisy").build();
+
+        assertThat(result.coauthor()).hasValue("daisy");
+    }
+
+    @Test
+    void shouldHaveEmptyOptionalByDefault() {
+        var result = A_PAGE.build();
+
+        assertThat(result.coauthor()).isEmpty();
+    }
+
+    @Test
+    void shouldAllowLazyAttributes() {
+        assertThat(true).isFalse();
+    }
+
+    @Test
+    void shouldSerialize() {
+        assertThat(true).isFalse();
     }
 }

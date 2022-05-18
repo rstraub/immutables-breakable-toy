@@ -1,6 +1,7 @@
 package nl.codecraftr.java.kata;
 
 import java.util.List;
+import java.util.Optional;
 import org.immutables.value.Value;
 
 @Value.Immutable
@@ -23,6 +24,8 @@ public interface WikiPage {
 
     @Value.Parameter(order = 0)
     String author();
+
+    Optional<String> coauthor();
 
     // Implicitly gets a default empty collection
     List<String> tags();
