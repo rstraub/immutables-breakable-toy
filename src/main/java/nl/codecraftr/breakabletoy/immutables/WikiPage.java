@@ -1,5 +1,7 @@
 package nl.codecraftr.breakabletoy.immutables;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
@@ -9,7 +11,9 @@ import org.immutables.value.Value;
 @Value.Style(
         typeImmutable = "*Value"
 )
-public sealed interface WikiPage extends Serializable permits WikiPageValue {
+@JsonSerialize(as = WikiPageValue.class)
+@JsonDeserialize(as = WikiPageValue.class)
+public interface WikiPage extends Serializable {
     @Value.Parameter(order = 1)
     @Value.Default
     default boolean isActive() {

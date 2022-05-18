@@ -4,6 +4,8 @@ import static java.util.Collections.emptyList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -206,6 +208,25 @@ class ImmutableWikiPageTest {
         assertThat(authors.coauthor()).isEqualTo("Jan");
     }
 
+    @Test
+    void shouldSerializeJson() throws JsonProcessingException {
+        var page = WikiPageValue.builder()
+                .author("John")
+                .isActive(true)
+                .addTags("1", "2")
+                .build();
 
-    // TODO: attempt json serialization (for mongo)
+        var objectMapper = new ObjectMapper();
+        var json = objectMapper.writeValueAsString(page);
+
+        assertThat(json).isEqualTo("""
+                {
+                    "author":"John",
+                    "coauthor":{"empty":true,"present":false},
+                    "tags":["1","2"],
+                    "isActive":true,
+                    "isInactive":false
+                 }
+                """.trim().replace("\n", "").replace(" ", ""));
+    }
 }

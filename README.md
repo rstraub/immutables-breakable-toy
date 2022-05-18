@@ -20,7 +20,7 @@ Summary of what I liked, and disliked
 | Usage [Patterns][patterns] & defining metatypes                                        |                                                                                      |
 | Interop with Java & [Guava][guava] types                                               |                                                                                      |
 | Java [records][records] offer zero-boilerplate dataholders, nothing more, nothing less |                                                                                      |
-| Interoperability with `sealed` modifier                                                |                                                                                      |
+| Interoperability with `sealed` modifier                                                | Except when you need json serialization and another implementor is added             |
 
 # ☕️ Using Java Kata Base
 
