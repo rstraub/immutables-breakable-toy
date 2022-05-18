@@ -1,6 +1,7 @@
 package nl.codecraftr.java.kata;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
 
@@ -71,6 +72,21 @@ class WikiPageTest {
         var result = ImmutableWikiPage.of("henk", true);
 
         assertThat(result.author()).isEqualTo("henk");
+        assertThat(result.isActive()).isTrue();
+    }
+
+    @Test
+    void shouldThrowExceptionGivenPartialInitialization() {
+        assertThatThrownBy(() -> ImmutableWikiPage.builder()
+                .isActive(true)
+                .build())
+                .isInstanceOf(IllegalStateException.class);
+    }
+
+    @Test
+    void shouldAllowDefaultValues() {
+        var result = ImmutableWikiPage.builder().author("henk").build();
+
         assertThat(result.isActive()).isTrue();
     }
 }
