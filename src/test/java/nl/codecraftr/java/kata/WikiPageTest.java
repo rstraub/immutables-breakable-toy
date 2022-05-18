@@ -167,4 +167,24 @@ class WikiPageTest {
 
         assertThat(readPage).isEqualTo(wrotePage);
     }
+
+    @Test
+    void shouldAllowInvariantProtection() {
+        assertThatThrownBy(() -> {
+            A_PAGE.author("").build();
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Author cannot be blank");
+    }
+
+    // TODO: attempt factory methods
+    // TODO: attempt json serialization (for mongo)
+    // TODO: compare with records
+
+    @Test
+    void recordComparison() {
+        var result = new SimpleWikiPage("henk", true);
+    }
+
+    private record SimpleWikiPage(String author, boolean isActive) {
+    }
 }

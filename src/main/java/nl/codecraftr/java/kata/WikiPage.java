@@ -26,6 +26,12 @@ public sealed interface WikiPage extends Serializable permits WikiPageValue {
     @Value.Parameter(order = 0)
     String author();
 
+    // Downside of this construction with inheritance is that these precondition methods can't be private
+    @Value.Check
+    default void nonEmptyAuthor() {
+        if (author().isBlank()) throw new IllegalArgumentException("Author cannot be blank");
+    }
+
     Optional<String> coauthor();
 
     // Implicitly gets a default empty collection
