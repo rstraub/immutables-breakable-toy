@@ -10,6 +10,12 @@ public interface WikiPage {
         return true;
     }
 
+    @Value.Derived
+    @Value.Auxiliary
+    default boolean isInactive() {
+        return !isActive();
+    }
+
     @Value.Parameter(order = 0)
     String author();
 }

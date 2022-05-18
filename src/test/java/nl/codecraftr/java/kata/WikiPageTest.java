@@ -84,9 +84,16 @@ class WikiPageTest {
     }
 
     @Test
-    void shouldAllowDefaultValues() {
+    void shouldAllowDefaultAttributes() {
         var result = ImmutableWikiPage.builder().author("henk").build();
 
         assertThat(result.isActive()).isTrue();
+    }
+
+    @Test
+    void shouldAllowDerivedAttributes() {
+        var result = ImmutableWikiPage.builder().author("henk").isActive(true).build();
+
+        assertThat(result.isInactive()).isFalse();
     }
 }
