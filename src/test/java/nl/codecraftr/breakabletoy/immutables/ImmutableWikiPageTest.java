@@ -190,13 +190,22 @@ class ImmutableWikiPageTest {
 
     @Test
     void shouldBeMorePowerfulThanRecords() {
-        var rec = new SimpleWikiPage("henk", true, emptyList());
+        var rec = new WikiPageRecord("henk", true, emptyList());
 
         // Records offer equals, hashCode, toString and some other stuff.
         // They DO NOT offer copy methods unlike case classes, data classes, or Immutables implementation.
         // This makes them unwieldy in a functional programming style
-        assertThat(rec.toString()).isEqualTo("SimpleWikiPage[author=henk, isActive=true, tags=[]]");
+        assertThat(rec.toString()).isEqualTo("WikiPageRecord[author=henk, isActive=true, tags=[]]");
     }
+
+    @Test
+    void shouldAllowPatternStyleObjects() {
+        var authors = AuthorsTuple.of("Henk", "Jan");
+
+        assertThat(authors.author()).isEqualTo("Henk");
+        assertThat(authors.coauthor()).isEqualTo("Jan");
+    }
+
 
     // TODO: attempt json serialization (for mongo)
 }
