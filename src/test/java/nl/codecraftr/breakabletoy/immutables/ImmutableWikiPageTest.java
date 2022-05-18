@@ -1,4 +1,4 @@
-package nl.codecraftr.java.kata;
+package nl.codecraftr.breakabletoy.immutables;
 
 import static java.util.Collections.emptyList;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -12,7 +12,7 @@ import java.io.ObjectOutputStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class WikiPageTest {
+class ImmutableWikiPageTest {
     private WikiPageValue.Builder A_PAGE;
 
     @BeforeEach

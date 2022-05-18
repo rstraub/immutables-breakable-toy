@@ -7,19 +7,20 @@ objects.
 
 Summary of what I liked, and disliked
 
-| Like                                                                                  | Dislike                                                                         |
-|---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| Highly [Configurable][config]                                                         | Requires an abstract value type (AVT) to define the model                       |
-| No boilerplate methods                                                                | Always results in a generated class + AVT                                       |
-| Lots of "free" code ([Builders][builder], copy methods, factory methods etc)          | [Annotation processing][ap] results in a weird workflow (refactoring, cleaning) |
-| Annotation processing produces source files, not bytecode                             | Redundancy due to language features?                                            |
-| Container utilities ([Optionals][optional], [Arrays, Collections, Maps][collections]) | Requires [IDE][ide] configuration to offer a good experience                    |
-| [Default arguments][defargs] (sort of)                                                | Invariant protection is awkward due to inheritance (indecent exposure)          |
-| Partial func application with [factory builders][facbuild]                            |                                                                                 |
-| [Lazy][lazy] evaluation + memoization                                                 |                                                                                 |
-| Usage [Patterns][patterns] & defining metatypes                                       |                                                                                 |
-| Interop with Java & [Guava][guava] types                                              |                                                                                 |
+| Like                                                                                   | Dislike                                                                         |
+|----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| Highly [Configurable][config]                                                          | Requires an abstract value type (AVT) to define the model                       |
+| No boilerplate methods                                                                 | Always results in a generated class + AVT                                       |
+| Lots of "free" code ([Builders][builder], copy methods, factory methods etc)           | [Annotation processing][ap] results in a weird workflow (refactoring, cleaning) |
+| Annotation processing produces source files, not bytecode                              | Redundancy due to language features?                                            |
+| Container utilities ([Optionals][optional], [Arrays, Collections, Maps][collections])  | Requires [IDE][ide] configuration to offer a good experience                    |
+| [Default arguments][defargs] (sort of)                                                 | Invariant protection is awkward due to inheritance (indecent exposure)          |
+| Partial func application with [factory builders][facbuild]                             |                                                                                 |
+| [Lazy][lazy] evaluation + memoization                                                  |                                                                                 |
+| Usage [Patterns][patterns] & defining metatypes                                        |                                                                                 |
+| Interop with Java & [Guava][guava] types                                               |                                                                                 |
 | Java [records][records] offer zero-boilerplate dataholders, nothing more, nothing less |                                                                                 |
+| Interoperability with `sealed` modifier                                                |                                                                                 |
 
 # ☕️ Using Java Kata Base
 
@@ -71,14 +72,25 @@ mvn verify
 ```
 
 [defargs]: https://immutables.github.io/immutable.html#default-attributes
+
 [facbuild]: https://immutables.github.io/factory.html
+
 [lazy]: https://immutables.github.io/immutable.html#lazy-attributes
+
 [patterns]: https://immutables.github.io/immutable.html#patterns
+
 [builder]: https://immutables.github.io/immutable.html#builder
+
 [collections]: https://immutables.github.io/immutable.html#array-collection-and-map-attributes
+
 [optional]: https://immutables.github.io/immutable.html#optional-attributes
+
 [config]: https://immutables.github.io/style.html
+
 [ide]: https://immutables.github.io/apt.html
+
 [ap]: https://www.baeldung.com/java-annotation-processing-builder
+
 [guava]: https://guava.dev/
-[records]: 
+
+[records]: https://docs.oracle.com/en/java/javase/14/language/records.html

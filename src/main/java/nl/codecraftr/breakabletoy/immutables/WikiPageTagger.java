@@ -1,4 +1,4 @@
-package nl.codecraftr.java.kata;
+package nl.codecraftr.breakabletoy.immutables;
 
 import java.util.List;
 import org.immutables.builder.Builder;

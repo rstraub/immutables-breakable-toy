@@ -1,4 +1,4 @@
-package nl.codecraftr.java.kata;
+package nl.codecraftr.breakabletoy.immutables;
 
 import java.io.Serializable;
 import java.util.List;

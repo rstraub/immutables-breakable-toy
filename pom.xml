@@ -30,7 +30,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>nl.codecraftr.java.kata.Kata</mainClass>
+                            <mainClass>nl.codecraftr.breakabletoy.immutables.ImmutablesBreakableToy</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
