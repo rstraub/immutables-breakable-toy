@@ -49,7 +49,7 @@
                     </execution>
                 </executions>
                 <groupId>com.github.spotbugs</groupId>
-                <version>4.6.0.0</version>
+                <version>4.7.0.0</version>
             </plugin>
         </plugins>
     </build>
