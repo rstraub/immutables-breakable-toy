@@ -108,7 +108,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <mockito.version>4.5.1</mockito.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <immutables.version>2.8.2</immutables.version>
+        <immutables.version>2.9.0</immutables.version>
     </properties>
 
     <url>https://www.codecraftr.nl</url>
