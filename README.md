@@ -15,7 +15,7 @@ Summary of what I liked, and disliked
 | Annotation processing produces source files, not bytecode                              | Redundancy due to language features?                                                 |
 | Container utilities ([Optionals][optional], [Arrays, Collections, Maps][collections])  | Requires [IDE][ide] configuration to offer a good experience                         |
 | [Default arguments][defargs] (sort of)                                                 | Invariant protection is awkward due to inheritance (indecent exposure)               |
-| Partial func application with [factory builders][facbuild]                             |                                                                                      |
+| Partial func application with [factory builders][facbuild]                             | Making Value Objects "rich" by adding behaviour is awkward when you rely on generated code                                                                                     |
 | [Lazy][lazy] evaluation + memoization                                                  |                                                                                      |
 | Usage [Patterns][patterns] & defining metatypes                                        |                                                                                      |
 | Interop with Java & [Guava][guava] types                                               |                                                                                      |
